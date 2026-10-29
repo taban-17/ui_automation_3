@@ -1,4 +1,4 @@
-import { RouterState } from "@shared/types/router-state";
+import type { RouterState } from "@shared/types/router-state";
 
 const API_BASE = "/api/routers";
 

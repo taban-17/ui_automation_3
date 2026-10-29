@@ -8,7 +8,7 @@
   },
   "wireless": {
     "enabled": true,
-    "ssid": "Second",
+    "ssid": "Office Network",
     "password": "example-password",
     "security": "WPA2-PSK",
     "broadcast": true,

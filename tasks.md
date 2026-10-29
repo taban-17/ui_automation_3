@@ -90,20 +90,20 @@
 
 ### Shared Prerequisites
 
-- [ ] Choose frontend toolchain (Vite + React vs. Next.js)
-- [ ] Add `frontend/` workspace (or `src/interfaces/` served by Express as static)
-- [ ] `src/shared/api/client.ts` — typed fetch wrapper for `/api/routers/*`
-- [ ] Dev proxy from frontend to `:4000`
+- [x] Choose frontend toolchain (Vite + React vs. Next.js)
+- [x] Add `frontend/` workspace (or `src/interfaces/` served by Express as static)
+- [x] `frontend/src/api/client.ts` — typed fetch wrapper for `/api/routers/*`
+- [x] Dev proxy from frontend to `:4000`
 
 ### 2.1 Router A — Conventional Admin
 
-- [ ] Route mount point chosen (e.g. `/router-a`)
-- [ ] Layout: sidebar + separate pages
-- [ ] Page: Wireless Settings → Basic Configuration (`SSID` → `wireless.ssid`)
-- [ ] Page: Wireless Settings → Security (`Pre-Shared Key` → `wireless.password`)
-- [ ] Page: LAN → IP Address (`LAN IP Address` → `lan.ipAddress`)
-- [ ] `Save` button → `PATCH` → success toast
-- [ ] Manual round-trip: change SSID → refresh → value persists
+- [x] Route mount point chosen (e.g. `/router-a`)
+- [x] Layout: sidebar + separate pages
+- [x] Page: Wireless Settings → Basic Configuration (`SSID` → `wireless.ssid`)
+- [x] Page: Wireless Settings → Security (`Pre-Shared Key` → `wireless.password`)
+- [x] Page: LAN → IP Address (`LAN IP Address` → `lan.ipAddress`)
+- [x] `Save` button → `PATCH` → success toast
+- [x] Manual round-trip: change SSID → refresh → value persists
 
 ### 2.2 Router B — Consumer-Friendly
 
@@ -164,21 +164,21 @@
 - [x] T001 — Change my Wi-Fi name (API-level, 4/4 routers)
 - [x] T002 — Change my wireless password (API-level, 4/4 routers)
 - [x] T003 — Turn off Wi-Fi (API-level, 4/4 routers)
-- [x] T004 — Hide my network name (API-level)
-- [x] T005 — Enable guest Wi-Fi (API-level)
+- [x] T004 — Hide my network name (API-level, 4/4 routers)
+- [x] T005 — Enable guest Wi-Fi (API-level, 4/4 routers)
 - [x] T006 — Change my router IP (API-level, 4/4 routers)
-- [x] T007 — Enable DHCP (API-level)
-- [x] T008 — Change the Wi-Fi channel (API-level)
+- [x] T007 — Enable DHCP (API-level, 4/4 routers)
+- [x] T008 — Change the Wi-Fi channel (API-level, 4/4 routers)
 
 ### 4.3 UI-level scenarios (browser automation)
 
-- [ ] Scenario runner: reset → drive UI → read `/state` → diff expected
-- [ ] T001 — Change my Wi-Fi name (UI, all 4 routers)
+- [x] Scenario runner: reset → drive UI → read `/state` → diff expected
+- [~] T001 — Change my Wi-Fi name (UI, router-a only)
 - [ ] T002 — Change my wireless password (UI, all 4 routers)
 - [ ] T003 — Turn off Wi-Fi (UI, all 4 routers)
 - [ ] T004 — Hide my network name (UI, all 4 routers)
 - [ ] T005 — Enable guest Wi-Fi (UI, all 4 routers)
-- [ ] T006 — Change my router IP (UI, all 4 routers)
+- [~] T006 — Change my router IP (UI, all 4 routers)
 - [ ] T007 — Enable DHCP (UI, all 4 routers)
 - [ ] T008 — Change the Wi-Fi channel (UI, all 4 routers)
 
@@ -230,3 +230,9 @@
 | 2026-10-29 | Playwright installed. API-level T001 / T003 / T006 × 4 routers green (12/12). |
 | 2026-10-29 | API matrix 36/36 green. Nested-patch bug caught and fixed via `z.deepPartial`. |
 | 2026-10-29 | Fixed playwright/tests/helpers/router-api.ts by line change `import { RouterState } from "../../../router_ui_server/src/shared/types/router-state";`. |
+| 2026-10-29 | Fixed playwright/tests/helpers/router-api.ts by line change `import { RouterState } from "../../../router_ui_server/src/shared/types/router-state";`. |
++ | 2026-10-29 | Frontend scaffold (layout B — sibling `frontend/`): Vite + React + Tailwind 4, `@shared` alias to backend types, `/api` proxy to `:4000`. Router A placeholder round-trips. TS pinned to 6.x for `typescript-eslint` compatibility. |
+| 2026-10-29 | Fixed playwright/tests/helpers/router-api.ts by line change `import { RouterState } from "../../../router_ui_server/src/shared/types/router-state";`. |
++ | 2026-10-29 | Frontend scaffold (layout B — sibling `frontend/`): Vite + React + Tailwind 4, `@shared` alias to backend types, `/api` proxy to `:4000`. Router A placeholder round-trips. TS pinned to 6.x for `typescript-eslint` compatibility. |
++ | 2026-10-29 | Router A implemented — sidebar layout, three pages (Basic Configuration / Security / LAN), per-page Save with status banner. `import type` fix for interface-only shared types. Manual round-trip verified. |
+| 2026-10-29 | First UI-level Playwright scenario (T001) green against Router A. `runUIScenario` helper established as template for all 32 UI tests. Playwright config now auto-starts both backend and frontend. |
