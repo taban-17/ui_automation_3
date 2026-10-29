@@ -5,6 +5,7 @@ import {
   resetState,
   readHistory,
   HistoryEntry,
+  tickState,
 } from "../services/state-manager";
 import { routerStatePatchSchema } from "../../config/router-schema";
 import { RouterState, RouterStatePatch } from "../../shared/types/router-state";
@@ -74,6 +75,23 @@ router.get(
       }
       const entries: HistoryEntry[] = await readHistory(id, limit);
       res.json({ router: id, count: entries.length, entries });
+    } catch (e: unknown) {
+      next(e);
+    }
+  }
+);
+
+
+router.post(
+  "/:id/tick",
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const id = String(req.params.id);
+      const raw = (req.body as { increment?: unknown } | undefined)?.increment;
+      const increment =
+        typeof raw === "number" && Number.isInteger(raw) && raw > 0 ? raw : 1;
+      const state: RouterState = await tickState(id, increment);
+      res.json({ success: true, state });
     } catch (e: unknown) {
       next(e);
     }

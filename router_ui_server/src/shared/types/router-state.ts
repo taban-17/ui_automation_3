@@ -1,3 +1,13 @@
+export interface ConnectedDevice {
+  mac: string;          // "aa:bb:cc:dd:ee:ff"
+  ip: string;           // "192.168.1.105"
+  hostname: string;     // "Eugene-Laptop"
+  interface: "wired" | "2.4GHz" | "5GHz";
+  lastSeen: string;     // ISO 8601 timestamp
+  joinedAtTick: number;
+  leftAtTick: number | null;
+}
+
 export interface RouterState {
   device: {
     id: string;
@@ -36,7 +46,9 @@ export interface RouterState {
     adminUsername: string;
     timezone: string;
     rebootRequired: boolean;
+    simulationTick: number;
   };
+  connectedDevices: ConnectedDevice[]
 }
 
 export type DeepPartial<T> = {
@@ -44,3 +56,9 @@ export type DeepPartial<T> = {
 };
 
 export type RouterStatePatch = DeepPartial<RouterState>;
+
+export function isDevicePresent(device: ConnectedDevice, tick: number): boolean {
+  if (tick < device.joinedAtTick) return false;
+  if (device.leftAtTick !== null && tick >= device.leftAtTick) return false;
+  return true;
+}

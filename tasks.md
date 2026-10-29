@@ -36,6 +36,11 @@
 - [x] `src/config/router-schema.ts` — full Zod schema
 - [x] `src/config/router-schema.ts` — patch Zod schema (`z.deepPartial(routerStateSchema)`)
 - [x] `src/config/router-schema.ts` — `RouterStatePatchInput` inferred type
+- [x] `src/shared/types/router-state.ts` — `ConnectedDevice` interface
+- [x] `src/shared/types/router-state.ts` — `connectedDevices: ConnectedDevice[]`, `system.simulationTick`
+- [x] `src/config/router-schema.ts` — Zod schema for `connectedDevices` + `simulationTick`
+- [x] `src/server/seed.ts` — seed 3 devices per router with deterministic join/leave ticks
+- [x] `src/shared/types/router-state.ts` — `isDevicePresent(device, tick)` predicate (shared by backend and frontend)
 
 ### 1.2 State Manager
 
@@ -48,6 +53,8 @@
 - [x] Append change record to `data/.history/<router>.jsonl` inside `updateState`
 - [x] `resetState(routerId)` — restore from `data/.initial/<router>.json`
 - [x] `ensureDirs()` — create `.initial/` and `.history/` at boot
+- [x] `tickState(routerId, increment)` — advance `simulationTick`, persist, record in history
+- [x] `HistoryEntry.action` extended to include `"tick"`
 
 ### 1.3 Persistence Data
 
@@ -67,6 +74,7 @@
 - [x] `PATCH /api/routers/:id/state`
 - [x] `POST /api/routers/:id/reset`
 - [x] `GET /api/routers/:id/history`
+- [x] `POST /api/routers/:id/tick` — advance simulation tick (dynamic device joins/leaves)
 
 ### 1.5 Middleware
 
@@ -104,22 +112,25 @@
 - [x] Page: LAN → IP Address (`LAN IP Address` → `lan.ipAddress`)
 - [x] `Save` button → `PATCH` → success toast
 - [x] Manual round-trip: change SSID → refresh → value persists
+- [x] Page: Status → Connected Devices (read-only device list, dynamic presence)
 
 ### 2.2 Router B — Consumer-Friendly
 
-- [ ] Route mount point (`/router-b`)
-- [ ] Layout: card dashboard, simplified labels
-- [ ] Card: Main Network (`Wi-Fi Name` → `wireless.ssid`)
+- [x] Route mount point (`/router-b`)
+- [x] Layout: card dashboard, simplified labels
+- [x] Card: Main Network (`Wi-Fi Name` → `wireless.ssid`)
 - [ ] Card: Guest Wi-Fi (`guestNetwork.enabled`)
-- [ ] `Apply changes` button → `PATCH`
+- [x] `Apply changes` button → `PATCH`
+> **Scope note:** Phase 2's four interfaces expose the same three canonical fields (SSID, password, LAN IP) with different UI treatments. Additional fields (guest network, DHCP, broadcast, bands) land in Phase 3 so each interface gains them in a workflow-appropriate way. T003/T004/T005/T007/T008 are UI-untestable until then.
 
 ### 2.3 Router C — Technical / Enterprise
 
-- [ ] Route mount point (`/router-c`)
-- [ ] Layout: tabs + dense forms
-- [ ] Tab: WLAN Configuration → SSID Profile (`WLAN SSID`)
-- [ ] Tab: Interface → Management Address (`lan.ipAddress`)
-- [ ] `Apply` button → `PATCH`
+- [x] Route mount point (`/router-c`)
+- [x] Layout: tabs + dense forms
+- [x] Tab: WLAN Configuration → SSID Profile (`WLAN SSID`)
+- [x] Tab: Interface → Management Address (`lan.ipAddress`)
+- [x] `Apply` button → `PATCH`
+- [x] Tab: Clients (read-only client table, dynamic presence)
 
 ### 2.4 Router D — Wizard
 
@@ -146,6 +157,7 @@
 - [ ] Per-band wireless controls (2.4 GHz / 5 GHz radios)
 - [ ] `rebootRequired` flag set by LAN changes → UI banner
 - [ ] Reboot-required → confirm → clear flag
+- [ ] `lastSeen` advances with `simulationTick`; shows "5 min ago" style relative time
 
 ---
 
@@ -169,18 +181,20 @@
 - [x] T006 — Change my router IP (API-level, 4/4 routers)
 - [x] T007 — Enable DHCP (API-level, 4/4 routers)
 - [x] T008 — Change the Wi-Fi channel (API-level, 4/4 routers)
+- [x] T009 — View connected devices (API-level, 4/4 routers)
 
 ### 4.3 UI-level scenarios (browser automation)
 
 - [x] Scenario runner: reset → drive UI → read `/state` → diff expected
 - [~] T001 — Change my Wi-Fi name (UI, router-a only)
-- [ ] T002 — Change my wireless password (UI, all 4 routers)
+- [~] T002 — Change my wireless password (UI, all 4 routers)
 - [ ] T003 — Turn off Wi-Fi (UI, all 4 routers)
 - [ ] T004 — Hide my network name (UI, all 4 routers)
 - [ ] T005 — Enable guest Wi-Fi (UI, all 4 routers)
-- [~] T006 — Change my router IP (UI, all 4 routers)
+- [~] T006 — Change my router IP (UI, router-a + router-b)
 - [ ] T007 — Enable DHCP (UI, all 4 routers)
 - [ ] T008 — Change the Wi-Fi channel (UI, all 4 routers)
+- [x] T009 — View connected devices (UI, router-a + router-c, includes dynamic tick)
 
 ### 4.4 Diagnostics
 
@@ -212,6 +226,10 @@
 | 3 | Reset source | `data/.initial/` snapshot — resolved |
 | 4 | Auth | None for now — resolved |
 | 5 | Unknown keys on `PATCH` | Ignored — resolved |
+| 6 | Connected devices location | Top-level `connectedDevices` + `system.simulationTick` — resolved |
+| 7 | Editable? | Read-only in Phase 2 — resolved |
+| 8 | A / C placement | A: Status → Connected Devices; C: Clients tab — resolved |
+| 9 | Dynamic mechanism | Explicit `POST /tick` — no background timers, deterministic — resolved |
 
 ---
 
@@ -236,3 +254,9 @@
 + | 2026-10-29 | Frontend scaffold (layout B — sibling `frontend/`): Vite + React + Tailwind 4, `@shared` alias to backend types, `/api` proxy to `:4000`. Router A placeholder round-trips. TS pinned to 6.x for `typescript-eslint` compatibility. |
 + | 2026-10-29 | Router A implemented — sidebar layout, three pages (Basic Configuration / Security / LAN), per-page Save with status banner. `import type` fix for interface-only shared types. Manual round-trip verified. |
 | 2026-10-29 | First UI-level Playwright scenario (T001) green against Router A. `runUIScenario` helper established as template for all 32 UI tests. Playwright config now auto-starts both backend and frontend. |
+| 2026-10-29 | First UI-level Playwright scenario (T001) green against Router A. `runUIScenario` helper established as template for all 32 UI tests. Playwright config now auto-starts both backend and frontend. |
++ | 2026-10-29 | Router B implemented — card dashboard, `Wi-Fi Name` / `Wi-Fi Password` / `Router IP`, single global `Apply changes` button with change detection. State isolation verified against A. |
+| 2026-10-29 | Router B implemented — card dashboard, `Wi-Fi Name` / `Wi-Fi Password` / `Router IP`, single global `Apply changes` button with change detection. State isolation verified against A. |
++ | 2026-10-29 | Router B UI tests green — T001/T002/T006 with cross-field mutation guards. Same `runUIScenario` helper, different selectors and save flow. 40/40 total (36 API + 4 UI). |
+| 2026-10-29 | Router A UI tests extended — T002 (Pre-Shared Key) and T006 (LAN IP Address) added with mutation guards. A and B now have symmetric UI coverage on T001/T002/T006. 42/42 total. |
++ | 2026-10-29 | Router C implemented — tab navigation, dense form panels with adjacent read-only context rows, technical terminology (`WLAN SSID`, `WPA Pre-Shared Key`, `Management Interface Address`), `Commit` save label. |

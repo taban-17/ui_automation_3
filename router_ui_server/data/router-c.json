@@ -8,7 +8,7 @@
   },
   "wireless": {
     "enabled": true,
-    "ssid": "Second",
+    "ssid": "Home Network",
     "password": "example-password",
     "security": "WPA2-PSK",
     "broadcast": true,
@@ -41,6 +41,36 @@
   "system": {
     "adminUsername": "admin",
     "timezone": "Africa/Nairobi",
-    "rebootRequired": false
-  }
+    "rebootRequired": false,
+    "simulationTick": 0
+  },
+  "connectedDevices": [
+    {
+      "mac": "aa:bb:cc:11:22:33",
+      "ip": "192.168.1.101",
+      "hostname": "Eugene-Laptop",
+      "interface": "5GHz",
+      "lastSeen": "2026-10-29T08:00:00.000Z",
+      "joinedAtTick": 0,
+      "leftAtTick": null
+    },
+    {
+      "mac": "aa:bb:cc:44:55:66",
+      "ip": "192.168.1.102",
+      "hostname": "LivingRoom-TV",
+      "interface": "wired",
+      "lastSeen": "2026-10-29T07:55:00.000Z",
+      "joinedAtTick": 0,
+      "leftAtTick": 5
+    },
+    {
+      "mac": "aa:bb:cc:77:88:99",
+      "ip": "192.168.1.103",
+      "hostname": "Kitchen-Speaker",
+      "interface": "2.4GHz",
+      "lastSeen": "2026-10-29T07:30:00.000Z",
+      "joinedAtTick": 2,
+      "leftAtTick": null
+    }
+  ]
 }

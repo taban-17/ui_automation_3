@@ -34,7 +34,7 @@ function historyPath(routerId: string): string {
 
 export interface HistoryEntry {
   timestamp: string;
-  action: "update" | "reset";
+  action: "update" | "reset" | "tick";
   patch?: RouterStatePatch;
   state: RouterState;
 }
@@ -164,4 +164,32 @@ function deepMerge<T>(target: T, source: DeepPartial<T>): T {
     return out as T;
   }
   return source as unknown as T;
+}
+
+export function tickState(
+  routerId: string,
+  increment: number
+): Promise<RouterState> {
+  if (!Number.isInteger(increment) || increment <= 0) {
+    throw new Error("increment must be a positive integer");
+  }
+  return enqueue(routerId, async (): Promise<RouterState> => {
+    const current = await loadState(routerId);
+    const nextTick = current.system.simulationTick + increment;
+    const next: RouterState = {
+      ...current,
+      system: { ...current.system, simulationTick: nextTick },
+    };
+    const validated = routerStateSchema.parse(next);
+    await saveState(routerId, validated);
+    await recordHistory(
+      {
+        timestamp: new Date().toISOString(),
+        action: "tick",
+        state: validated,
+      },
+      routerId
+    );
+    return validated;
+  });
 }

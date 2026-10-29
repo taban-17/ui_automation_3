@@ -33,6 +33,12 @@ export default function RouterAApp() {
           <p className="px-3 pt-4 pb-1 text-xs uppercase tracking-wide text-slate-400">
             LAN
           </p>
+          <p className="px-3 pt-4 pb-1 text-xs uppercase tracking-wide text-slate-400">
+            Status
+          </p>
+          <NavLink to="status/devices" className={navClass}>
+            Connected Devices
+          </NavLink>
           <NavLink to="lan" className={navClass}>
             IP Address
           </NavLink>

@@ -5,6 +5,17 @@ const bandSchema = z.object({
   channel: z.string(),
 });
 
+const connectedDeviceSchema = z.object({
+  mac: z.string().regex(/^([0-9a-f]{2}:){5}[0-9a-f]{2}$/i, "Invalid MAC address"),
+  ip: z.string().regex(/^(\d{1,3}\.){3}\d{1,3}$/, "Invalid IPv4 address"),
+  hostname: z.string().min(1).max(64),
+  interface: z.enum(["wired", "2.4GHz", "5GHz"]),
+  lastSeen: z.string().datetime(),
+  joinedAtTick: z.number().int().nonnegative(),
+  leftAtTick: z.number().int().nonnegative().nullable(),
+
+});
+
 export const routerStateSchema = z.object({
   device: z.object({
     id: z.string(),
@@ -43,7 +54,9 @@ export const routerStateSchema = z.object({
     adminUsername: z.string(),
     timezone: z.string(),
     rebootRequired: z.boolean(),
+    simulationTick: z.number().int().nonnegative(),
   }),
+  connectedDevices: z.array(connectedDeviceSchema),
 });
 
 // Deep-partial: every nested field optional at any depth, but each provided
