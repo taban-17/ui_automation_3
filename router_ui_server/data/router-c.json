@@ -1,0 +1,46 @@
+{
+  "device": {
+    "id": "router-c",
+    "manufacturer": "TechniCore",
+    "model": "Simulation Router C",
+    "hostname": "router-c",
+    "firmware": "1.0.0"
+  },
+  "wireless": {
+    "enabled": true,
+    "ssid": "Second",
+    "password": "example-password",
+    "security": "WPA2-PSK",
+    "broadcast": true,
+    "bands": {
+      "2.4GHz": {
+        "enabled": true,
+        "channel": "auto"
+      },
+      "5GHz": {
+        "enabled": true,
+        "channel": "auto"
+      }
+    }
+  },
+  "lan": {
+    "ipAddress": "192.168.1.1",
+    "subnetMask": "255.255.255.0",
+    "dhcp": {
+      "enabled": true,
+      "startAddress": "192.168.1.100",
+      "endAddress": "192.168.1.200",
+      "leaseTime": 86400
+    }
+  },
+  "guestNetwork": {
+    "enabled": false,
+    "ssid": "Guest Network",
+    "security": "WPA2-PSK"
+  },
+  "system": {
+    "adminUsername": "admin",
+    "timezone": "Africa/Nairobi",
+    "rebootRequired": false
+  }
+}
