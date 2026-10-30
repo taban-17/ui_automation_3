@@ -1,0 +1,25 @@
+{
+  "router-a/wireless/basic": {
+    "SSID": "wireless.ssid"
+  },
+  "router-a/wireless/security": {
+    "Pre-Shared Key": "wireless.password"
+  },
+  "router-a/lan": {
+    "LAN IP Address": "lan.ipAddress"
+  },
+  "router-b/": {
+    "Wi-Fi Name": "wireless.ssid",
+    "Wi-Fi Password": "wireless.password",
+    "Router IP": "lan.ipAddress"
+  },
+  "router-c/wlan": {
+    "WLAN SSID": "wireless.ssid"
+  },
+  "router-c/security": {
+    "WPA Pre-Shared Key": "wireless.password"
+  },
+  "router-c/interface": {
+    "Management Interface Address": "lan.ipAddress"
+  }
+}

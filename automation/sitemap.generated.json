@@ -1,0 +1,647 @@
+{
+  "version": "1",
+  "generatedAt": "2026-10-30T05:29:45.212Z",
+  "baseUrl": "http://localhost:5173",
+  "routers": {
+    "router-a": {
+      "router": "router-a",
+      "entryPageId": "router-a/wireless/basic",
+      "entryUrl": "/router-a/wireless/basic",
+      "pages": [
+        {
+          "pageId": "router-a/wireless/basic",
+          "router": "router-a",
+          "url": "/router-a/wireless/basic",
+          "title": "frontend",
+          "headings": [
+            "Simulation Router A",
+            "Basic Configuration"
+          ],
+          "elements": [
+            {
+              "kind": "link",
+              "text": "Basic Configuration",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[1]",
+              "href": "http://localhost:5173/router-a/wireless/basic"
+            },
+            {
+              "kind": "link",
+              "text": "Security",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[2]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[2]",
+              "href": "http://localhost:5173/router-a/wireless/security"
+            },
+            {
+              "kind": "link",
+              "text": "Connected Devices",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[3]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[3]",
+              "href": "http://localhost:5173/router-a/status/devices"
+            },
+            {
+              "kind": "link",
+              "text": "IP Address",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[4]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[4]",
+              "href": "http://localhost:5173/router-a/lan"
+            },
+            {
+              "kind": "input",
+              "text": "SSID",
+              "value": "Home Network",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/input[1]",
+              "selector": "#ssid-input",
+              "inputType": "text"
+            },
+            {
+              "kind": "button",
+              "text": "Save",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/button[1]"
+            }
+          ],
+          "navigation": [
+            {
+              "elementText": "Basic Configuration",
+              "targetUrl": "/router-a/wireless/basic"
+            },
+            {
+              "elementText": "Security",
+              "targetUrl": "/router-a/wireless/security"
+            },
+            {
+              "elementText": "Connected Devices",
+              "targetUrl": "/router-a/status/devices"
+            },
+            {
+              "elementText": "IP Address",
+              "targetUrl": "/router-a/lan"
+            }
+          ],
+          "fields": []
+        },
+        {
+          "pageId": "router-a/wireless/security",
+          "router": "router-a",
+          "url": "/router-a/wireless/security",
+          "title": "frontend",
+          "headings": [
+            "Simulation Router A",
+            "Security"
+          ],
+          "elements": [
+            {
+              "kind": "link",
+              "text": "Basic Configuration",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[1]",
+              "href": "http://localhost:5173/router-a/wireless/basic"
+            },
+            {
+              "kind": "link",
+              "text": "Security",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[2]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[2]",
+              "href": "http://localhost:5173/router-a/wireless/security"
+            },
+            {
+              "kind": "link",
+              "text": "Connected Devices",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[3]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[3]",
+              "href": "http://localhost:5173/router-a/status/devices"
+            },
+            {
+              "kind": "link",
+              "text": "IP Address",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[4]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[4]",
+              "href": "http://localhost:5173/router-a/lan"
+            },
+            {
+              "kind": "input",
+              "text": "Pre-Shared Key",
+              "value": "example-password",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/input[1]",
+              "selector": "#psk-input",
+              "inputType": "password"
+            },
+            {
+              "kind": "button",
+              "text": "Save",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/button[1]"
+            }
+          ],
+          "navigation": [
+            {
+              "elementText": "Basic Configuration",
+              "targetUrl": "/router-a/wireless/basic"
+            },
+            {
+              "elementText": "Security",
+              "targetUrl": "/router-a/wireless/security"
+            },
+            {
+              "elementText": "Connected Devices",
+              "targetUrl": "/router-a/status/devices"
+            },
+            {
+              "elementText": "IP Address",
+              "targetUrl": "/router-a/lan"
+            }
+          ],
+          "fields": []
+        },
+        {
+          "pageId": "router-a/status/devices",
+          "router": "router-a",
+          "url": "/router-a/status/devices",
+          "title": "frontend",
+          "headings": [
+            "Simulation Router A",
+            "Connected Devices"
+          ],
+          "elements": [
+            {
+              "kind": "link",
+              "text": "Basic Configuration",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[1]",
+              "href": "http://localhost:5173/router-a/wireless/basic"
+            },
+            {
+              "kind": "link",
+              "text": "Security",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[2]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[2]",
+              "href": "http://localhost:5173/router-a/wireless/security"
+            },
+            {
+              "kind": "link",
+              "text": "Connected Devices",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[3]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[3]",
+              "href": "http://localhost:5173/router-a/status/devices"
+            },
+            {
+              "kind": "link",
+              "text": "IP Address",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[4]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[4]",
+              "href": "http://localhost:5173/router-a/lan"
+            },
+            {
+              "kind": "button",
+              "text": "Refresh",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/button[1]"
+            }
+          ],
+          "navigation": [
+            {
+              "elementText": "Basic Configuration",
+              "targetUrl": "/router-a/wireless/basic"
+            },
+            {
+              "elementText": "Security",
+              "targetUrl": "/router-a/wireless/security"
+            },
+            {
+              "elementText": "Connected Devices",
+              "targetUrl": "/router-a/status/devices"
+            },
+            {
+              "elementText": "IP Address",
+              "targetUrl": "/router-a/lan"
+            }
+          ],
+          "fields": []
+        },
+        {
+          "pageId": "router-a/lan",
+          "router": "router-a",
+          "url": "/router-a/lan",
+          "title": "frontend",
+          "headings": [
+            "Simulation Router A",
+            "LAN IP Address"
+          ],
+          "elements": [
+            {
+              "kind": "link",
+              "text": "Basic Configuration",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[1]",
+              "href": "http://localhost:5173/router-a/wireless/basic"
+            },
+            {
+              "kind": "link",
+              "text": "Security",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[2]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[2]",
+              "href": "http://localhost:5173/router-a/wireless/security"
+            },
+            {
+              "kind": "link",
+              "text": "Connected Devices",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[3]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[3]",
+              "href": "http://localhost:5173/router-a/status/devices"
+            },
+            {
+              "kind": "link",
+              "text": "IP Address",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[4]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/nav[1]/a[4]",
+              "href": "http://localhost:5173/router-a/lan"
+            },
+            {
+              "kind": "input",
+              "text": "LAN IP Address",
+              "value": "192.168.1.1",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/input[1]",
+              "selector": "#lan-ip-input",
+              "inputType": "text"
+            },
+            {
+              "kind": "input",
+              "text": "Subnet Mask",
+              "value": "255.255.255.0",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/input[1]",
+              "selector": "#subnet-mask-input",
+              "inputType": "text"
+            },
+            {
+              "kind": "button",
+              "text": "Save",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[3]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[3]/button[1]"
+            }
+          ],
+          "navigation": [
+            {
+              "elementText": "Basic Configuration",
+              "targetUrl": "/router-a/wireless/basic"
+            },
+            {
+              "elementText": "Security",
+              "targetUrl": "/router-a/wireless/security"
+            },
+            {
+              "elementText": "Connected Devices",
+              "targetUrl": "/router-a/status/devices"
+            },
+            {
+              "elementText": "IP Address",
+              "targetUrl": "/router-a/lan"
+            }
+          ],
+          "fields": []
+        }
+      ]
+    },
+    "router-b": {
+      "router": "router-b",
+      "entryPageId": "router-b/",
+      "entryUrl": "/router-b",
+      "pages": [
+        {
+          "pageId": "router-b/",
+          "router": "router-b",
+          "url": "/router-b",
+          "title": "frontend",
+          "headings": [
+            "NovaLink Router",
+            "Main Network",
+            "Router"
+          ],
+          "elements": [
+            {
+              "kind": "input",
+              "text": "Wi-Fi Name",
+              "value": "Home Network",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
+              "selector": "#wifi-name-input",
+              "inputType": "text",
+              "placeholder": "My Home Wi-Fi"
+            },
+            {
+              "kind": "input",
+              "text": "Wi-Fi Password",
+              "value": "example-password",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]",
+              "selector": "#wifi-password-input",
+              "inputType": "password"
+            },
+            {
+              "kind": "input",
+              "text": "Router IP",
+              "value": "192.168.1.1",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]",
+              "selector": "#router-ip-input",
+              "inputType": "text",
+              "placeholder": "192.168.1.1"
+            },
+            {
+              "kind": "button",
+              "text": "Apply changes",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]"
+            }
+          ],
+          "navigation": [],
+          "fields": []
+        }
+      ]
+    },
+    "router-c": {
+      "router": "router-c",
+      "entryPageId": "router-c/wlan",
+      "entryUrl": "/router-c/wlan",
+      "pages": [
+        {
+          "pageId": "router-c/wlan",
+          "router": "router-c",
+          "url": "/router-c/wlan",
+          "title": "frontend",
+          "headings": [
+            "TECHNICORE"
+          ],
+          "elements": [
+            {
+              "kind": "link",
+              "text": "WLAN Configuration",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[1]",
+              "href": "http://localhost:5173/router-c/wlan"
+            },
+            {
+              "kind": "link",
+              "text": "Security",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[2]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[2]",
+              "href": "http://localhost:5173/router-c/security"
+            },
+            {
+              "kind": "link",
+              "text": "Interface",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[3]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[3]",
+              "href": "http://localhost:5173/router-c/interface"
+            },
+            {
+              "kind": "link",
+              "text": "Clients",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[4]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[4]",
+              "href": "http://localhost:5173/router-c/clients"
+            },
+            {
+              "kind": "input",
+              "text": "WLAN SSID",
+              "value": "Home Network",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/input[1]",
+              "selector": "#wlan-ssid-input",
+              "inputType": "text"
+            },
+            {
+              "kind": "button",
+              "text": "Commit",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]"
+            }
+          ],
+          "navigation": [
+            {
+              "elementText": "WLAN Configuration",
+              "targetUrl": "/router-c/wlan"
+            },
+            {
+              "elementText": "Security",
+              "targetUrl": "/router-c/security"
+            },
+            {
+              "elementText": "Interface",
+              "targetUrl": "/router-c/interface"
+            },
+            {
+              "elementText": "Clients",
+              "targetUrl": "/router-c/clients"
+            }
+          ],
+          "fields": []
+        },
+        {
+          "pageId": "router-c/security",
+          "router": "router-c",
+          "url": "/router-c/security",
+          "title": "frontend",
+          "headings": [
+            "TECHNICORE"
+          ],
+          "elements": [
+            {
+              "kind": "link",
+              "text": "WLAN Configuration",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[1]",
+              "href": "http://localhost:5173/router-c/wlan"
+            },
+            {
+              "kind": "link",
+              "text": "Security",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[2]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[2]",
+              "href": "http://localhost:5173/router-c/security"
+            },
+            {
+              "kind": "link",
+              "text": "Interface",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[3]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[3]",
+              "href": "http://localhost:5173/router-c/interface"
+            },
+            {
+              "kind": "link",
+              "text": "Clients",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[4]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[4]",
+              "href": "http://localhost:5173/router-c/clients"
+            },
+            {
+              "kind": "input",
+              "text": "WPA Pre-Shared Key",
+              "value": "example-password",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[3]/input[1]",
+              "selector": "#psk-input",
+              "inputType": "password"
+            },
+            {
+              "kind": "button",
+              "text": "Commit",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]"
+            }
+          ],
+          "navigation": [
+            {
+              "elementText": "WLAN Configuration",
+              "targetUrl": "/router-c/wlan"
+            },
+            {
+              "elementText": "Security",
+              "targetUrl": "/router-c/security"
+            },
+            {
+              "elementText": "Interface",
+              "targetUrl": "/router-c/interface"
+            },
+            {
+              "elementText": "Clients",
+              "targetUrl": "/router-c/clients"
+            }
+          ],
+          "fields": []
+        },
+        {
+          "pageId": "router-c/interface",
+          "router": "router-c",
+          "url": "/router-c/interface",
+          "title": "frontend",
+          "headings": [
+            "TECHNICORE"
+          ],
+          "elements": [
+            {
+              "kind": "link",
+              "text": "WLAN Configuration",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[1]",
+              "href": "http://localhost:5173/router-c/wlan"
+            },
+            {
+              "kind": "link",
+              "text": "Security",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[2]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[2]",
+              "href": "http://localhost:5173/router-c/security"
+            },
+            {
+              "kind": "link",
+              "text": "Interface",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[3]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[3]",
+              "href": "http://localhost:5173/router-c/interface"
+            },
+            {
+              "kind": "link",
+              "text": "Clients",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[4]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[4]",
+              "href": "http://localhost:5173/router-c/clients"
+            },
+            {
+              "kind": "input",
+              "text": "Management Interface Address",
+              "value": "192.168.1.1",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/input[1]",
+              "selector": "#mgmt-ip-input",
+              "inputType": "text"
+            },
+            {
+              "kind": "button",
+              "text": "Commit",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]"
+            }
+          ],
+          "navigation": [
+            {
+              "elementText": "WLAN Configuration",
+              "targetUrl": "/router-c/wlan"
+            },
+            {
+              "elementText": "Security",
+              "targetUrl": "/router-c/security"
+            },
+            {
+              "elementText": "Interface",
+              "targetUrl": "/router-c/interface"
+            },
+            {
+              "elementText": "Clients",
+              "targetUrl": "/router-c/clients"
+            }
+          ],
+          "fields": []
+        },
+        {
+          "pageId": "router-c/clients",
+          "router": "router-c",
+          "url": "/router-c/clients",
+          "title": "frontend",
+          "headings": [
+            "TECHNICORE"
+          ],
+          "elements": [
+            {
+              "kind": "link",
+              "text": "WLAN Configuration",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[1]",
+              "href": "http://localhost:5173/router-c/wlan"
+            },
+            {
+              "kind": "link",
+              "text": "Security",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[2]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[2]",
+              "href": "http://localhost:5173/router-c/security"
+            },
+            {
+              "kind": "link",
+              "text": "Interface",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[3]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[3]",
+              "href": "http://localhost:5173/router-c/interface"
+            },
+            {
+              "kind": "link",
+              "text": "Clients",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[4]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/nav[1]/a[4]",
+              "href": "http://localhost:5173/router-c/clients"
+            },
+            {
+              "kind": "button",
+              "text": "Refresh",
+              "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]"
+            }
+          ],
+          "navigation": [
+            {
+              "elementText": "WLAN Configuration",
+              "targetUrl": "/router-c/wlan"
+            },
+            {
+              "elementText": "Security",
+              "targetUrl": "/router-c/security"
+            },
+            {
+              "elementText": "Interface",
+              "targetUrl": "/router-c/interface"
+            },
+            {
+              "elementText": "Clients",
+              "targetUrl": "/router-c/clients"
+            }
+          ],
+          "fields": []
+        }
+      ]
+    }
+  }
+}

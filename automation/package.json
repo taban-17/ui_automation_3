@@ -1,0 +1,23 @@
+{
+  "name": "automation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "crawl": "tsx crawl-sitemap.ts",
+    "agent": "tsx agent.ts",
+    "check-fields": "npx tsx check-fields.ts"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "playwright": "^1.50.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "~6.0.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

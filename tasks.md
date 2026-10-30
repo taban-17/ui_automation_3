@@ -138,6 +138,7 @@
 - [ ] Multi-step wizard: Network Identification → Security → Confirm
 - [ ] Terminology: `Network Identifier`, `Network Access Key`, `Local Gateway`
 - [ ] Final `Submit configuration` → `PATCH`
+- [-] Deferred — LLM automation against A/B/C takes priority
 
 ### 2.5 Cross-Cutting
 
@@ -158,6 +159,48 @@
 - [ ] `rebootRequired` flag set by LAN changes → UI banner
 - [ ] Reboot-required → confirm → clear flag
 - [ ] `lastSeen` advances with `simulationTick`; shows "5 min ago" style relative time
+
+## Phase 3.5 — LLM UI Automation (OpenRouter + Caching + Sitemap)
+
+### 3.5.1 Sitemap infrastructure
+- [x] `automation/sitemap/schema.ts` — PageMap, InteractiveElement, Sitemap types
+- [x] `automation/sitemap/capture.ts` — live page → PageMap (elements, xpath, headings, input labels)
+- [x] `automation/sitemap/crawl.ts` — BFS from each router entry point
+- [x] `automation/crawl-sitemap.ts` — CLI entrypoint (`npm run crawl`)
+- [x] Crawler run against router-a, router-b, router-c
+- [x] `automation/sitemap.generated.json` — 9 pages captured
+- [x] `automation/sitemap/fields.json` — hand-annotated `pageId + elementText → canonicalPath`
+- [x] `sitemap/index.ts` — `loadFields()` + `mergeFields()` helpers
+- [x] `check-fields.ts` — verified 9/9 field mappings resolve to captured elements
+
+### 3.5.2 OpenRouter client
+- [x] `automation/tools.ts` — identify_page, list_elements, click, fill, read_state, navigate
+- [x] `automation/tools-runner.ts` — Playwright execution with XPath/CSS selector detection
+- [x] `automation/agent.ts` — turn loop with max-turns guard
+- [x] Manual tool-layer verification T001 (no LLM) — PASS
+
+### 3.5.3 Agent
+- [ ] `automation/tools.ts` — identify_page, list_elements, click, fill, read_state, navigate
+- [ ] `automation/agent.ts` — turn loop with max-turns guard, per-turn state
+- [ ] `automation/scenarios.ts` — T001/T002/T006/T009
+
+### 3.5.4 Cache verification
+- [ ] Turn 1 writes cache; turns 2+ read >75% of prompt tokens on same page
+- [ ] Session_id stable across turns
+- [ ] Sitemap entry trimmed to <300 tokens per page
+
+### 3.5.5 Scenario coverage
+- [x] T001 via LLM — router-a (qwen/qwen3.6-plus:free) — PASS
+- [x] T001 via LLM — router-a (nvidia/nemotron-3.5-lightning:free) — PASS
+- [ ] T002 — all three
+- [ ] T006 — all three
+- [ ] T009 — router-a, router-c (dynamic tick)
+
+### 3.5.6 Metrics
+- [ ] Turn count per scenario (target: ≤5)
+- [ ] Cache hit rate per scenario (target: >75%)
+- [ ] Cost per scenario (target: <$0.01)
+- [ ] Failure taxonomy: wrong field / wrong value / wrong navigation / unsaved
 
 ---
 
@@ -260,3 +303,4 @@
 + | 2026-10-29 | Router B UI tests green — T001/T002/T006 with cross-field mutation guards. Same `runUIScenario` helper, different selectors and save flow. 40/40 total (36 API + 4 UI). |
 | 2026-10-29 | Router A UI tests extended — T002 (Pre-Shared Key) and T006 (LAN IP Address) added with mutation guards. A and B now have symmetric UI coverage on T001/T002/T006. 42/42 total. |
 + | 2026-10-29 | Router C implemented — tab navigation, dense form panels with adjacent read-only context rows, technical terminology (`WLAN SSID`, `WPA Pre-Shared Key`, `Management Interface Address`), `Commit` save label. |
+| 2026-10-30 | T001 LLM-driven PASS on two free models (qwen/qwen3.6-plus:free, nvidia/nemotron-3.5-lightning:free). Tool layer proven end-to-end. |
