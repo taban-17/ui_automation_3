@@ -190,8 +190,11 @@
 - [ ] Sitemap entry trimmed to <300 tokens per page
 
 ### 3.5.5 Scenario coverage
-- [x] T001 via LLM — router-a (qwen/qwen3.6-plus:free) — PASS
 - [x] T001 via LLM — router-a (nvidia/nemotron-3.5-lightning:free) — PASS
+- [x] T002 via LLM — router-a — PASS
+- [x] T006 via LLM — router-a — PASS
+- [ ] T001 via LLM — router-b
+- [ ] T001 via LLM — router-c
 - [ ] T002 — all three
 - [ ] T006 — all three
 - [ ] T009 — router-a, router-c (dynamic tick)
@@ -304,3 +307,4 @@
 | 2026-10-29 | Router A UI tests extended — T002 (Pre-Shared Key) and T006 (LAN IP Address) added with mutation guards. A and B now have symmetric UI coverage on T001/T002/T006. 42/42 total. |
 + | 2026-10-29 | Router C implemented — tab navigation, dense form panels with adjacent read-only context rows, technical terminology (`WLAN SSID`, `WPA Pre-Shared Key`, `Management Interface Address`), `Commit` save label. |
 | 2026-10-30 | T001 LLM-driven PASS on two free models (qwen/qwen3.6-plus:free, nvidia/nemotron-3.5-lightning:free). Tool layer proven end-to-end. |
+| 2026-10-30 | Agent parametrized — 9 scenarios (T001/T002/T006 × router A/B/C) via `SCENARIO` env var. Instruction wording varies per router for terminology-generalization testing. |

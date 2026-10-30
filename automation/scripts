@@ -1,0 +1,35 @@
+#MANUAL TESTS
+npx tsx manual-t001.ts
+# Router A — regression check
+SCENARIO=t001-a npx tsx manual/manual-scenario.ts
+SCENARIO=t002-a npx tsx manual/manual-scenario.ts
+SCENARIO=t006-a npx tsx manual/manual-scenario.ts
+
+# Router B — terminology divergence
+SCENARIO=t001-b npx tsx manual/manual-scenario.ts
+SCENARIO=t002-b npx tsx manual/manual-scenario.ts
+SCENARIO=t006-b npx tsx manual/manual-scenario.ts
+
+# Router C — terminology + save-label divergence
+SCENARIO=t001-c npx tsx manual/manual-scenario.ts
+SCENARIO=t002-c npx tsx manual/manual-scenario.ts
+SCENARIO=t006-c npx tsx manual/manual-scenario.ts
+
+
+#AGENT TESTS
+# Baseline (already passed)
+SCENARIO=t001-a npm run agent
+
+# New scenarios
+SCENARIO=t002-a npm run agent
+SCENARIO=t006-a npm run agent
+
+# Terminology divergence — b's labels differ
+SCENARIO=t001-b npm run agent
+SCENARIO=t002-b npm run agent
+SCENARIO=t006-b npm run agent
+
+# Terminology divergence — c's labels differ
+SCENARIO=t001-c npm run agent
+SCENARIO=t002-c npm run agent
+SCENARIO=t006-c npm run agent
